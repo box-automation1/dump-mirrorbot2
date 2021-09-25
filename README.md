@@ -71,12 +71,29 @@ APM, ARJ, CHM, CPIO, CramFS, DEB, DMG, FAT,
 HFS, LZH, LZMA, LZMA2, MBR, MSI, MSLZ, NSIS, 
 NTFS, RPM, SquashFS, UDF, VHD, XAR, Z.
 ```
+## Additional Features
+- Dump Android Firmwares To GitHub Org, Publicly Or Privately
+- Invite Users To Private GitHub Repos
+- Generate Dummy Device-Trees And Vendor-Trees From Firmware Dump Link
+- How to use /dump , /pdump , /invite , /dummy? 
+```
+dump: /dump <firmware link>
+pdump: /pdump <firmware link>
+invite: /invite Box-boi redmi_biloba_dump
+dummy: /dump <dump link> <dump branch>(optional)
+```
 
 </details>
 
 # How to deploy?
 Deploying is pretty much straight forward and is divided into several steps as follows:
 ## Installing requirements
+- Fork These Repos First:
+```
+1: https://github.com/Box-boi/dumper
+2: https://github.com/Box-boi/dummy
+```
+- After Forking, Set The Appropriate Git-Secrets, By Taking A Look At .github/workflows/xyz.yml
 
 - Clone this repo:
 ```
@@ -135,6 +152,14 @@ _____REMOVE_THIS_LINE_____=True
 ```
 Fill up rest of the fields. Meaning of each field is discussed below:
 ### Required Field
+- `GITHUB_TOKEN`: itHub Token, Don't Leak This Token, Or Your Account Will Be Compromised!, Keep It A Secret, Get Your Token From: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+- `GITHUB_ORG_NAME`: Your GitHub Organization Name, Where Your Dumps Will Be Stored
+- `GITHUB_USER_NAME`: Your GitHub Username
+- `GITHUB_DUMPER_REPO_NAME`: Leave Untouched If You Have Forked My Repos
+- `GITHUB_DUMMY_REPO_NAME`: Leave Untouched If You Have Forked My Repos
+- `TELEGRAM_CHANNEL_NAME`: Channel Tag Where Your Dumps Will Be Posted Example: @boxdumps
+- `DUMPER_REPO_WORKFLOW_URL`: Example: https://github.com/box-automation1/dumper/actions
+- `GITHUB_USER_EMAIL`: Email Of Your GitHub Account
 - `BOT_TOKEN`: The Telegram Bot Token that you got from [@BotFather](https://t.me/BotFather)
 - `TELEGRAM_API`: This is to authenticate your Telegram account for downloading Telegram files. You can get this from https://my.telegram.org. **NOTE**: DO NOT put this in quotes.
 - `TELEGRAM_HASH`: This is to authenticate your Telegram account for downloading Telegram files. You can get this from https://my.telegram.org
@@ -194,7 +219,7 @@ Three buttons are already added including Drive Link, Index Link, and View Link,
 
 ## Bot commands to be set in [@BotFather](https://t.me/BotFather)
 
-<p><a href="https://github.com/SlamDevs/slam-mirrorbot/wiki/Bot-commands-to-be-set-in-BotFather"> <img src="https://img.shields.io/badge/See%20On%20Wiki-grey?style=for-the-badge&logo=github" width="160""/></a></p>
+<p><a href="https://telegra.ph/Commands-To-Set-In-BotFather-09-26"> <img src="https://img.shields.io/badge/See%20On%20Wiki-grey?style=for-the-badge&logo=github" width="160""/></a></p>
 
 ## Getting Google OAuth API credential file
 - Visit the [Google Cloud Console](https://console.developers.google.com/apis/credentials)
@@ -361,5 +386,8 @@ Thanks to:
 - [`zevtyardt`](https://github.com/zevtyardt) for some direct links
 - [`yash-dk`](https://github.com/yash-dk) for implementation of qBittorrent on Python
 - [`xyou365`](https://github.com/xyou365) for Service Accounts script
+- [`techyminati`](https://github.com/techyminati) for help in dump script
 
 And many more people who aren't mentioned here, but can be found in [Contributors](https://github.com/SlamDevs/slam-mirrorbot/graphs/contributors).
+
+This Repo Will Be Upstreamed Once A Month To [Slam Mirrorbot Source](https://github.com/SlamDevs/slam-mirrorbot/)

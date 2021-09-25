@@ -17,7 +17,7 @@ from bot.helper.telegram_helper.message_utils import *
 from .helper.ext_utils.bot_utils import get_readable_file_size, get_readable_time
 from .helper.telegram_helper.filters import CustomFilters
 from bot.helper.telegram_helper import button_build
-from .modules import authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval, torrent_search, delete, speedtest, count, leech_settings
+from .modules import authorize, list, cancel_mirror, mirror_status, mirror, dump, pdump, invite, dummy, clone, watch, shell, eval, torrent_search, delete, speedtest, count, leech_settings
 
 
 def stats(update, context):
@@ -152,6 +152,15 @@ help_string_telegraph = f'''<br>
 <b>/{BotCommands.StatusCommand}</b>: Shows a status of all the downloads
 <br><br>
 <b>/{BotCommands.StatsCommand}</b>: Show Stats of the machine the bot is hosted on
+<br><br>
+<b>/{BotCommands.DummyCommand}</b>: Generates A Dummy Tree Using A Link To A Dump Of An Android Firmware, Example /{BotCommands.DummyCommand} dump_link dump_branch(optional)
+<br><br>
+<b>/{BotCommands.InviteCommand}</b>: Invite Users To Private GitHub Repo, Example /{BotCommands.InviteCommand} Box-boi redmi_biloba_dump (Only Owner)
+<br><br>
+<b>/{BotCommands.PdumpCommand}</b>: Dump Android Firmwares To GitHub Repo(Privately), Example /{BotCommands.PdumpCommand} firmware_link (Authorized Users Only)
+<br><br>
+<b>/{BotCommands.DumpCommand}</b>: Dump Android Firmwares To GitHub Repo, Example /{BotCommands.DumpCommand} firmware_link (Authorized Users Only)
+<br><br>
 '''
 help = Telegraph(access_token=telegraph_token).create_page(
         title='Slam Mirrorbot Help',
@@ -162,27 +171,16 @@ help = Telegraph(access_token=telegraph_token).create_page(
 
 help_string = f'''
 /{BotCommands.PingCommand}: Check how long it takes to Ping the Bot
-
 /{BotCommands.AuthorizeCommand}: Authorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
-
 /{BotCommands.UnAuthorizeCommand}: Unauthorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
-
 /{BotCommands.AuthorizedUsersCommand}: Show authorized users (Only Owner & Sudo)
-
 /{BotCommands.AddSudoCommand}: Add sudo user (Only Owner)
-
 /{BotCommands.RmSudoCommand}: Remove sudo users (Only Owner)
-
 /{BotCommands.RestartCommand}: Restart the bot
-
 /{BotCommands.LogCommand}: Get a log file of the bot. Handy for getting crash reports
-
 /{BotCommands.SpeedCommand}: Check Internet Speed of the Host
-
 /{BotCommands.ShellCommand}: Run commands in Shell (Only Owner)
-
 /{BotCommands.ExecHelpCommand}: Get help for Executor module (Only Owner)
-
 /{BotCommands.TsHelpCommand}: Get help for Torrent search module
 '''
 
@@ -214,6 +212,10 @@ botcmds = [
         (f'{BotCommands.ListCommand}','Searches files in Drive'),
         (f'{BotCommands.StatusCommand}','Get Mirror Status message'),
         (f'{BotCommands.StatsCommand}','Bot Usage Stats'),
+        (f'{BotCommands.DumpCommand}','Dump Android Firmware To GitHub Repo [Authorized Users only]'),
+        (f'{BotCommands.PdumpCommand}','Dump Android Firmware To GitHub Private Repo [Authorized Users only]'),
+        (f'{BotCommands.InviteCommand}','Invite Users To Private GitHub Repos [owner/sudo only]'),
+        (f'{BotCommands.DummyCommand}','Generates A Dummy Tree Using A Link To A Dump Of An Android Firmware [Authorized Users only]'),
         (f'{BotCommands.PingCommand}','Ping the Bot'),
         (f'{BotCommands.RestartCommand}','Restart the bot [owner/sudo only]'),
         (f'{BotCommands.LogCommand}','Get the Bot Log [owner/sudo only]'),
