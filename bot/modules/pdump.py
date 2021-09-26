@@ -160,5 +160,5 @@ def pdump(update: Update, context: CallbackContext):
         message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
 
-PDUMP_HANDLER = CommandHandler(['pdmp', 'pdump'], pdump)
+PDUMP_HANDLER = CommandHandler(['pdmp2', 'pdump2'], pdump)
 dispatcher.add_handler(PDUMP_HANDLER)

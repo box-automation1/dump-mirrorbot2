@@ -117,5 +117,5 @@ def dummy(update: Update, context: CallbackContext):
         message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
 
-DUMMY_HANDLER = CommandHandler(['dmy', 'dummy'], dummy)
+DUMMY_HANDLER = CommandHandler(['dmy2', 'dummy2'], dummy)
 dispatcher.add_handler(DUMMY_HANDLER)

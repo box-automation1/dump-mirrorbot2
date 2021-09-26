@@ -160,5 +160,5 @@ def dump(update: Update, context: CallbackContext):
         message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
 
-DUMP_HANDLER = CommandHandler(['dmp', 'dump'], dump)
+DUMP_HANDLER = CommandHandler(['dmp2', 'dump2'], dump)
 dispatcher.add_handler(DUMP_HANDLER)

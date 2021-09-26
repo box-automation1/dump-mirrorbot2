@@ -92,5 +92,5 @@ def invite(update: Update, context: CallbackContext):
         message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
 
-INVITE_HANDLER = CommandHandler(['inv', 'invite'], invite)
+INVITE_HANDLER = CommandHandler(['inv2', 'invite2'], invite)
 dispatcher.add_handler(INVITE_HANDLER)
