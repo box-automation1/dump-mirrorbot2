@@ -138,7 +138,7 @@ def dump(update: Update, context: CallbackContext):
     message = update.effective_message
     cmd = message.text.split(' ', 1)
     CHAT_ID=message.chat_id
-    uname = f'href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>'
+    uname = f'href="tg://user?id={message.from_user.id}">{message.from_user.first_name}'
     print(CHAT_ID)
     if len(cmd) == 1:
         message.reply_text('Please Provide a Direct Link to an Android Firmware')
