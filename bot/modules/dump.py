@@ -145,7 +145,7 @@ def dump(update: Update, context: CallbackContext):
         return
     cmd = cmd[1]
     process = subprocess.Popen(
-        bashcmd + ' ' + '"' + cmd + ' ' + GITHUB_TOKEN + ' ' + GITHUB_USER_NAME + ' ' + GITHUB_DUMPER_REPO_NAME + ' ' + GITHUB_USER_EMAIL + ' ' + TELEGRAM_CHANNEL_NAME + ' ' + DUMPER_REPO_WORKFLOW_URL + ' ' + str(CHAT_ID) + ' ' + uname + '"', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        bashcmd + ' ' + '"' + cmd + ' ' + GITHUB_TOKEN + ' ' + GITHUB_USER_NAME + ' ' + GITHUB_DUMPER_REPO_NAME + ' ' + GITHUB_USER_EMAIL + ' ' + TELEGRAM_CHANNEL_NAME + ' ' + DUMPER_REPO_WORKFLOW_URL + ' ' + str(CHAT_ID) + ' ' + '"' + uname + '"' + '"', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     stdout, stderr = process.communicate()
     reply = ''
     stderr = stderr.decode()
