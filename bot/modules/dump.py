@@ -29,6 +29,8 @@ ORIGINAL_GITHUB_USER_EMAIL=$(git config user.email)
 ORIGINAL_GITHUB_USER_NAME=$(git config user.name)
 echo "$1" | grep -e '^\(https\?\|ftp\)://.*$' > /dev/null;
 CODE=$1
+echo "$CODE
+"
 set -- $CODE
 URL=$1
 GIT_TOKEN=$2
@@ -136,7 +138,7 @@ def dump(update: Update, context: CallbackContext):
     message = update.effective_message
     cmd = message.text.split(' ', 1)
     CHAT_ID=message.chat_id
-    uname = f'<a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>'
+    uname = f'href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>'
     print(CHAT_ID)
     if len(cmd) == 1:
         message.reply_text('Please Provide a Direct Link to an Android Firmware')
