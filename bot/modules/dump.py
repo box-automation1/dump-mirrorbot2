@@ -38,6 +38,12 @@ GITHUB_USER_EMAIL=$5
 TELEGRAM_CHANNEL_NAME=$6
 DUMPER_REPO_WORKFLOW_URL=$7
 CHAT_ID=$8
+UNAME1=$9
+UNAME2=$10
+echo "$UNAME1
+"
+echo "$UNAME2
+"
 git config --global user.email "$GITHUB_USER_EMAIL"
 git config --global user.name "$GITHUB_USER_NAME"
 git config --global credential.helper cache
@@ -130,13 +136,14 @@ def dump(update: Update, context: CallbackContext):
     message = update.effective_message
     cmd = message.text.split(' ', 1)
     CHAT_ID=message.chat_id
+    uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
     print(CHAT_ID)
     if len(cmd) == 1:
         message.reply_text('Please Provide a Direct Link to an Android Firmware')
         return
     cmd = cmd[1]
     process = subprocess.Popen(
-        bashcmd + ' ' + '"' + cmd + ' ' + GITHUB_TOKEN + ' ' + GITHUB_USER_NAME + ' ' + GITHUB_DUMPER_REPO_NAME + ' ' + GITHUB_USER_EMAIL + ' ' + TELEGRAM_CHANNEL_NAME + ' ' + DUMPER_REPO_WORKFLOW_URL + ' ' + str(CHAT_ID) + '"', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+        bashcmd + ' ' + '"' + cmd + ' ' + GITHUB_TOKEN + ' ' + GITHUB_USER_NAME + ' ' + GITHUB_DUMPER_REPO_NAME + ' ' + GITHUB_USER_EMAIL + ' ' + TELEGRAM_CHANNEL_NAME + ' ' + DUMPER_REPO_WORKFLOW_URL + ' ' + str(CHAT_ID) + ' ' + uname + '"', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
     stdout, stderr = process.communicate()
     reply = ''
     stderr = stderr.decode()
