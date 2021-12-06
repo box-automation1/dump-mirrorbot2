@@ -134,7 +134,7 @@ def pdump(update: Update, context: CallbackContext):
     stderr = stderr.decode()
     stdout = stdout.decode()
     if stdout:
-        reply += f"*Dumping Your Given Firmware(Privately), Please wait, Dump will be availaible on \n\n{TELEGRAM_CHANNEL_NAME}*\n\n`{stdout}`\n"
+        reply += f"*Dumping Your Given Firmware(Privately), Please wait, Dump will be availaible on \n\n{TELEGRAM_CHANNEL_NAME}*\n\n {stdout}\n"
         LOGGER.info(f"Shell - {bashcmd} {cmd} {GITHUB_TOKEN} {GITHUB_USER_NAME} {GITHUB_DUMPER_REPO_NAME} {GITHUB_USER_EMAIL} {TELEGRAM_CHANNEL_NAME} {DUMPER_REPO_WORKFLOW_URL} {str(CHAT_ID)} - {stdout}")
     if stderr:
         reply += f"*Stderr*\n`{stderr}`\n"

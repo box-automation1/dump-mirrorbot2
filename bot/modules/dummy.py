@@ -80,7 +80,7 @@ def dummy(update: Update, context: CallbackContext):
     stderr = stderr.decode()
     stdout = stdout.decode()
     if stdout:
-        reply += f"*Generating Dummy Device-Tree, It will be availaible on \n\n{TELEGRAM_CHANNEL_NAME}*\n\n`{stdout}`\n"
+        reply += f"*Generating Dummy Device-Tree, It will be availaible on \n\n{TELEGRAM_CHANNEL_NAME}*\n\n {stdout}\n"
         LOGGER.info(f"Shell - {bashcmd} {GITHUB_TOKEN} {GITHUB_USER_NAME} {GITHUB_DUMMY_REPO_NAME} {GITHUB_USER_EMAIL} {TELEGRAM_CHANNEL_NAME} {str(CHAT_ID)} {cmd} - {stdout}")
     if stderr:
         reply += f"*Stderr*\n`{stderr}`\n"

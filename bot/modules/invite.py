@@ -55,7 +55,7 @@ def invite(update: Update, context: CallbackContext):
     stderr = stderr.decode()
     stdout = stdout.decode()
     if stdout:
-        reply += f"*Inviting User To Mentioned GitHub Repo*\n\n`{stdout}`\n"
+        reply += f"*Inviting User To Mentioned GitHub Repo*\n\n {stdout}\n"
         LOGGER.error(f"Shell - {bashcmd} {GITHUB_TOKEN} {GITHUB_USER_NAME} {GITHUB_ORG_NAME} {cmd}- {stderr}")
     if stderr:
         reply += f"*Stderr*\n`{stderr}`\n"
