@@ -73,6 +73,6 @@ def invite(update: Update, context: CallbackContext):
         message.reply_text(reply, parse_mode=ParseMode.MARKDOWN)
 
 
-INVITE_HANDLER = CommandHandler(['inv', 'invite'], invite,
+INVITE_HANDLER = CommandHandler(['inv2', 'invite2'], invite,
                     filters=CustomFilters.owner_filter | CustomFilters.sudo_user, run_async=True)
 dispatcher.add_handler(INVITE_HANDLER)
